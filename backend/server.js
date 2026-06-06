@@ -4,57 +4,41 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-const connectDB =
-require("./src/config/db");
+const connectDB = require("./src/config/db");
 
-const restaurantRoutes =
-require("./src/routes/RestaurantRoutes");
-
-const errorHandler =
-require("./src/middleware/errorMiddleware");
-
-const menuRoutes =
-require("./src/routes/MenuRoutes");
-
-const authRoutes =
-require("./src/routes/authRoutes");
-
-const reservationRoutes =
-require(
-"./src/routes/reservationRoutes"
-);
+const restaurantRoutes = require("./src/routes/RestaurantRoutes");
+const menuRoutes = require("./src/routes/MenuRoutes");
+const authRoutes = require("./src/routes/authRoutes");
+const reservationRoutes = require("./src/routes/reservationRoutes");
 
 connectDB();
 
 const app = express();
 
-app.use(cors());
+// CORS
+app.use(
+    cors({
+        origin: "https://rrs-w5.vercel.app",
+        credentials: true
+    })
+);
+
 app.use(express.json());
 
-app.use(
-    "/api/restaurants",
-    restaurantRoutes
-);
+// Test Route
+app.get("/", (req, res) => {
+    res.send("Restaurant Reservation API Running");
+});
 
-app.use(
-    "/api/menus",
-    menuRoutes
-);
-
-
+// Routes
+app.use("/api/restaurants", restaurantRoutes);
+app.use("/api/menus", menuRoutes);
 app.use("/api/auth", authRoutes);
-app.use(errorHandler);
+app.use("/api/reservations", reservationRoutes);
 
-app.use(
-    "/api/reservations",
-    reservationRoutes
-);
-
-app.listen(
-    process.env.PORT,
-    () => {
-        console.log(
-            `Server Running on port ${process.env.PORT}`
-        );
-    }
-);
+// Start Server
+app.listen(process.env.PORT, () => {
+    console.log(
+        `Server Running on port ${process.env.PORT}`
+    );
+});
