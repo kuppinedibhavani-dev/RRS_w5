@@ -11,6 +11,13 @@ Backend:https://rrs-w5.onrender.com
 
 Github Repository:https://github.com/kuppinedibhavani-dev/RRS_w5
 
+## Images
+  Home Page= ![alt text](image.png)
+  Customer Register Page= ![alt text](image-1.png)
+  Customer Login Page= ![alt text](image-2.png)
+  Staff Register Page=![alt text](image-3.png)
+  Staff Login Page= ![alt text](image-4.png)
+  
 ## Features
 
 ### Customer Features
