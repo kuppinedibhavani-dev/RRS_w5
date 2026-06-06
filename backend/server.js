@@ -16,6 +16,14 @@ require("./src/middleware/errorMiddleware");
 const menuRoutes =
 require("./src/routes/MenuRoutes");
 
+const authRoutes =
+require("./src/routes/authRoutes");
+
+const reservationRoutes =
+require(
+"./src/routes/reservationRoutes"
+);
+
 connectDB();
 
 const app = express();
@@ -33,7 +41,14 @@ app.use(
     menuRoutes
 );
 
+
+app.use("/api/auth", authRoutes);
 app.use(errorHandler);
+
+app.use(
+    "/api/reservations",
+    reservationRoutes
+);
 
 app.listen(
     process.env.PORT,
