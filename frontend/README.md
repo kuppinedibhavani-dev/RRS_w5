@@ -7,7 +7,7 @@ A full-stack Restaurant Reservation System built using the MERN Stack. The appli
 
 Frontend: https://rrs-w5.vercel.app
 
-Backend:https://rrs-w5.onrender.com
+Backend:https://rrs-w5-1.onrender.com
 
 Github Repository:https://github.com/kuppinedibhavani-dev/RRS_w5
 
