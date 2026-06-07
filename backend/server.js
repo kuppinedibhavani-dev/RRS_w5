@@ -18,7 +18,10 @@ const app = express();
 // CORS
 app.use(
     cors({
-        origin: "https://rrs-w5.vercel.app",
+        origin: [
+            "http://localhost:5173",
+            "https://rrs-w5.vercel.app"
+        ],
         credentials: true
     })
 );
