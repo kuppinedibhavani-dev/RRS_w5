@@ -6,7 +6,7 @@ import {
 
 import Navbar from "./components/Navbar";
 
-
+import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import StaffLogin from "./pages/StaffLogin";
@@ -36,6 +36,10 @@ function App() {
             <Navbar />
 
             <Routes>
+                <Route
+    path="/restaurants"
+    element={<Home />}
+/>
 
                 {/* Landing Page */}
                 <Route

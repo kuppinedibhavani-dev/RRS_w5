@@ -1,28 +1,29 @@
-const express =
-require("express");
+const express = require("express");
 
-const router =
-express.Router();
+const router = express.Router();
 
 const {
-
     createReservation,
+    getReservations,
+    getReservationsByUser
+} = require("../controllers/reservationController");
 
-    getReservations
-
-} = require(
-"../controllers/reservationController"
-);
-
+// Create Reservation
 router.post(
     "/",
     createReservation
 );
 
+// Get All Reservations
 router.get(
     "/",
     getReservations
 );
 
-module.exports =
-router;
+// Get Reservations By User
+router.get(
+    "/user/:userId",
+    getReservationsByUser
+);
+
+module.exports = router;

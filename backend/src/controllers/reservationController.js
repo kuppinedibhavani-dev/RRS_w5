@@ -1,36 +1,16 @@
 const Reservation =
 require("../models/Reservation");
 
-const createReservation =
-async (req, res) => {
-
-    try {
-
-        const reservation =
-            await Reservation.create(
-                req.body
-            );
-
-        res.status(201).json(
-            reservation
-        );
-
-    } catch (error) {
-
-        res.status(500).json({
-            message:
-            error.message
-        });
-    }
-};
-
-const getReservations =
+const getReservationsByUser =
 async (req, res) => {
 
     try {
 
         const reservations =
-            await Reservation.find();
+            await Reservation.find({
+                userId:
+                req.params.userId
+            });
 
         res.status(200).json(
             reservations
@@ -44,11 +24,8 @@ async (req, res) => {
         });
     }
 };
-
 module.exports = {
-
     createReservation,
-
-    getReservations
-
+    getReservations,
+    getReservationsByUser
 };
